@@ -1,5 +1,5 @@
 import React from 'react'
-import '../scss/style.scss'
+import '../scss/Home.scss'
 
 export default class Home extends React.Component {
 	render() {
@@ -8,6 +8,10 @@ export default class Home extends React.Component {
 				<nav>
 					<div className='nav'>
 						<div className='nav__burgericon'></div>
+						{/* <div></div> */}
+						<div className='nav--menu'>home</div>
+						<div className='nav--menu'>about me</div>
+						<div className='nav--menu'>contact</div>
 					</div>
 				</nav>
 				<header>

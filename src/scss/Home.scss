@@ -31,11 +31,12 @@ html {
 }
 
 .nav {
-	position: relative;
-	display: flex;
-	justify-content: flex-end;
+	// position: relative;
+	// display: flex;
+	// justify-content: flex-end;
 	width: 100%;
 	&__burgericon {
+		display: none;
 		position: fixed;
 		top: 0;
 		margin: 10px 20px;
@@ -43,6 +44,11 @@ html {
 		height: 50px;
 		background-image: url('../icon/burger-icon.svg');
 		background-size: cover;
+	}
+	&--menu {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
 	}
 }
 
@@ -70,5 +76,14 @@ html {
 		border: none;
 		border-radius: 15px;
 		text-transform: uppercase;
+	}
+}
+
+//  md: 768px,
+@media (max-width: 768px) {
+	.nav {
+		&__burgericon {
+			display: block;
+		}
 	}
 }
