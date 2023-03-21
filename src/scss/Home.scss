@@ -1,21 +1,5 @@
-/*position
-top/left/bottom/right
-display
-
-margin
-padding
-width / min / max-width
-height / min / max-height
-
-font-size
-line-height
-
-color
-background-color
-border
-transition
-cursor
-*/
+//ROOT
+$secondlyColor: #4e4855;
 
 *,
 *::before,
@@ -25,15 +9,22 @@ cursor
 	box-sizing: border-box;
 }
 
-html {
-	font-family: 'Ubuntu', sans-serif;
-	font-size: 10px;
+a {
+	text-decoration: none;
+	color: $secondlyColor;
 }
 
+html {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 62.5%;
+}
+
+//NAVIGATION
+
 .nav {
-	// position: relative;
-	// display: flex;
-	// justify-content: flex-end;
+	position: relative;
+	display: flex;
+	justify-content: flex-end;
 	width: 100%;
 	&__burgericon {
 		display: none;
@@ -45,12 +36,40 @@ html {
 		background-image: url('../icon/burger-icon.svg');
 		background-size: cover;
 	}
-	&--menu {
+
+	&__menu {
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
+		flex-direction: row;
+		padding: 10px 25px;
+		margin: 5px 20px;
+		font-size: 2rem;
+		color: $secondlyColor;
+		&--register-btn {
+			padding: 0.7em 1em;
+			margin: 1em;
+			border: 1px solid rgb(54, 48, 48);
+			border-radius: 1.2em;
+			font-size: 2rem;
+		}
+		&--logo {
+			position: fixed;
+			top: 0;
+			left: 0;
+			margin: 20px 20px;
+			width: 50px;
+			height: 50px;
+			background-image: url('../icon/server-bolt.svg');
+			background-size: cover;
+		}
+	}
+	&__menu:hover {
+		cursor: pointer;
 	}
 }
+
+//HEADER
 
 .header {
 	margin-top: 15%;
@@ -59,31 +78,46 @@ html {
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		padding: 30px;
+		text-align: center;
+		padding: 3em;
 	}
 	&__welcome-h1 {
-		padding: 50px;
+		padding: 1em;
 		max-width: 100%;
 		min-height: 100%;
-		text-align: center;
 	}
 	&__welcome-text {
 		font-size: 2rem;
+		color: $secondlyColor;
 	}
 	&__welcome-btn {
-		padding: 10px 20px;
-		margin: 40px;
-		border: none;
-		border-radius: 15px;
-		text-transform: uppercase;
+		padding: 0.7em 1em;
+		margin: 1em;
+		border: 1px solid rgb(54, 48, 48);
+		border-radius: 1.2em;
+		font-size: 2rem;
+		background: none;
+	}
+	&__welcome-btn:hover {
+		cursor: pointer;
 	}
 }
 
-//  md: 768px,
+//MOBILE
+
 @media (max-width: 768px) {
 	.nav {
 		&__burgericon {
+			position: fixed;
+			right: 0;
+			top: 0;
 			display: block;
+		}
+		&__menu {
+			display: none;
+			&--register-btn {
+				display: none;
+			}
 		}
 	}
 }
