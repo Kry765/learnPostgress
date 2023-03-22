@@ -1,15 +1,32 @@
 @use './reset.scss' as *;
 
+.container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
 .form-account {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 1.5em;
+	padding: 1.5em 0;
+	min-width: 30%;
 	&__input-account {
-		padding: 1em 0.5em;
+		min-width: 100%;
+		padding: 1em;
 		margin: 0.5em;
 		border: none;
 		border-bottom: 1.5px solid #919191;
+		// border-width: 1em;
+	}
+	&__forgot-password{
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		padding: 0 0.5em;
 	}
 }
 
@@ -20,4 +37,9 @@
 	border-radius: 1.2em;
 	font-size: 2rem;
 	background: none;
+}
+
+
+.bottom-signup-link{
+	font-weight: bold;
 }

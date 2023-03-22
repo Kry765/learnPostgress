@@ -1,7 +1,8 @@
 @use './reset.scss' as *;
 
 .nav {
-	position: relative;
+	position: fixed;
+	top: 0;
 	display: flex;
 	justify-content: flex-end;
 	width: 100%;
@@ -52,6 +53,9 @@
 //MOBILE
 
 @media (max-width: 768px) {
+	.header{
+		margin-top: 50%;
+	}
 	.nav {
 		&__burgericon {
 			position: fixed;
