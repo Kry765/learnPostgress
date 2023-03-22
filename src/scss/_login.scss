@@ -1,0 +1,23 @@
+@use './reset.scss' as *;
+
+.form-account {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1.5em;
+	&__input-account {
+		padding: 1em 0.5em;
+		margin: 0.5em;
+		border: none;
+		border-bottom: 1.5px solid #919191;
+	}
+}
+
+.signin-btn {
+	padding: 0.7em 1em;
+	margin: 1em;
+	border: 1px solid rgb(54, 48, 48);
+	border-radius: 1.2em;
+	font-size: 2rem;
+	background: none;
+}

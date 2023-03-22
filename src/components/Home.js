@@ -1,5 +1,6 @@
 import React from 'react'
-import '../scss/Home.scss'
+import '../scss/_home.scss'
+import '../scss/_style.scss'
 import { Link } from 'react-router-dom'
 
 export default class Home extends React.Component {

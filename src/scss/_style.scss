@@ -1,25 +1,4 @@
-//ROOT
-$secondlyColor: #4e4855;
-
-*,
-*::before,
-*::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-a {
-	text-decoration: none;
-	color: $secondlyColor;
-}
-
-html {
-	font-family: 'Ubuntu', sans-serif;
-	font-size: 62.5%;
-}
-
-//NAVIGATION
+@use './reset.scss' as *;
 
 .nav {
 	position: relative;
@@ -66,40 +45,6 @@ html {
 		}
 	}
 	&__menu:hover {
-		cursor: pointer;
-	}
-}
-
-//HEADER
-
-.header {
-	margin-top: 15%;
-	&__position {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		text-align: center;
-		padding: 3em;
-	}
-	&__welcome-h1 {
-		padding: 1em;
-		max-width: 100%;
-		min-height: 100%;
-	}
-	&__welcome-text {
-		font-size: 2rem;
-		color: $secondlyColor;
-	}
-	&__welcome-btn {
-		padding: 0.7em 1em;
-		margin: 1em;
-		border: 1px solid rgb(54, 48, 48);
-		border-radius: 1.2em;
-		font-size: 2rem;
-		background: none;
-	}
-	&__welcome-btn:hover {
 		cursor: pointer;
 	}
 }

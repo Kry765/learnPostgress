@@ -1,0 +1,19 @@
+$secondlyColor: #4e4855;
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: $secondlyColor;
+}
+
+html {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 62.5%;
+}
