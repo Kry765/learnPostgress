@@ -6,17 +6,34 @@ export default class Login extends React.Component {
 	render() {
 		return (
 			<div>
-				<nav>
-					<div className='nav'>
-						<div className='nav__menu--logo'>
-						{/* <Link to='/'></Link> */}
-						</div>
-						<div className='nav__burgericon'></div>
-						<div className='nav__menu'>
-							<Link to='/'>Home</Link>
-						</div>
-						<div className='nav__menu--register-btn'>
-							<Link to='/Register'>Sing up</Link>
+				<nav class='navbar navbar-expand-lg bg-body-tertiary'>
+					<div class='container-fluid'>
+						<a class='navbar-brand' href='#'>
+							Navbar
+						</a>
+						<button
+							class='navbar-toggler'
+							type='button'
+							data-bs-toggle='collapse'
+							data-bs-target='#navbarNavAltMarkup'
+							aria-controls='navbarNavAltMarkup'
+							aria-expanded='false'
+							aria-label='Toggle navigation'>
+							<span class='navbar-toggler-icon'></span>
+						</button>
+						<div class='collapse navbar-collapse' id='navbarNavAltMarkup'>
+							<div class='navbar-nav'>
+								<a class='nav-link active' aria-current='page' href='#'>
+									Home
+								</a>
+								<a class='nav-link' href='#'>
+									Features
+								</a>
+								<a class='nav-link' href='#'>
+									Pricing
+								</a>
+								<a class='nav-link disabled'>Disabled</a>
+							</div>
 						</div>
 					</div>
 				</nav>
@@ -30,22 +47,25 @@ export default class Login extends React.Component {
 					<form>
 						<div>
 							<div className='container'>
-							<div className='form-account'>
-								<input type='text' className='form-account__input-account' placeholder='Email' />
-								<input type='password' className='form-account__input-account' placeholder='Password' />
-								<p>
-									<span className='form-account__forgot-password'>
-									<Link to='/Resetpassword'>Forgot password</Link>
-									</span>
-								</p>
-							</div>							
+								<div className='form-account'>
+									<input type='text' className='form-account__input-account' placeholder='Email' />
+									<input type='password' className='form-account__input-account' placeholder='Password' />
+									<p>
+										<span className='form-account__forgot-password'>
+											<Link to='/Resetpassword'>Forgot password</Link>
+										</span>
+									</p>
+								</div>
 								<button type='button' className='signin-btn'>
 									Sign in
 								</button>
-								<p>Don't have an accound? <span className='bottom-signup-link'>
-									<Link to="/Register">Sign up</Link>
-									</span></p>
-								</div>	
+								<p>
+									Don't have an accound?{' '}
+									<span className='bottom-signup-link'>
+										<Link to='/Register'>Sign up</Link>
+									</span>
+								</p>
+							</div>
 						</div>
 					</form>
 				</main>

@@ -7,12 +7,12 @@ export default class Home extends React.Component {
 		return (
 			<div>
 				<nav>
-					<div className='nav'>
-						<div className='nav__menu--logo'></div>
+					<div className='navbar-nav'>
+						<div className='nav__link--logo'></div>
 						<div className='nav__burgericon'></div>
-						<div className='nav__menu'>About me</div>
-						<div className='nav__menu'>Contact</div>
-						<div className='nav__menu'>
+						<div className='nav__link'>About me</div>
+						<div className='nav__link'>Contact</div>
+						<div className='nav__link'>
 							<Link to='Login'>Log in</Link>
 						</div>
 						<div className='nav__menu--register-btn'>
