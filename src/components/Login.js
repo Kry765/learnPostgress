@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../scss/_style.scss'
 import '../scss/_login.scss'
 
 export default class Login extends React.Component {
