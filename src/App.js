@@ -2,6 +2,7 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Register from './components/Register'
 import Resetpassword from './components/Resetpassword'
+import 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 export default function App() {
