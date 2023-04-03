@@ -5,6 +5,9 @@ from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 
 conn = psycopg2.connect(
     host="localhost",
@@ -15,12 +18,13 @@ conn = psycopg2.connect(
 )
 
 @app.route('/users', methods=['POST'])
+@cross_origin()
 def add_user():
     email = request.json['email']
-    password = request.json['pwd']
+    pwd = request.json['pwd']
     try:
         cur = conn.cursor()
-        cur.execute("INSERT INTO users ( email, pwd) VALUES (%s, %s)", ( email, password))
+        cur.execute("INSERT INTO users ( email, pwd) VALUES (%s, %s)", ( email, pwd))
         conn.commit()
         cur.close()
         return jsonify({'message': 'User added successfully!'})

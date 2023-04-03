@@ -6,7 +6,7 @@ export default class Register extends React.Component {
 		super(props)
 		this.state = {
 			email: '',
-			password: '',
+			pwd: '',
 		}
 	}
 
@@ -20,10 +20,11 @@ export default class Register extends React.Component {
 
 	handleSubmit = event => {
 		event.preventDefault()
-		fetch('http://127.0.0.1:5000/users', {
+		fetch('http://localhost:5000/users', {
 			method: 'POST',
+			mode: 'no-cors',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ email: this.state.email, pwd: this.state.password }),
+			body: JSON.stringify({ email: this.state.email, pwd: this.state.pwd }),
 		})
 			.then(response => response.json())
 			.then(data => {
