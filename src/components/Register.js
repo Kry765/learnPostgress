@@ -1,6 +1,5 @@
 import React from 'react'
 import '../scss/_register.scss'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 export default class Register extends React.Component {
 	constructor(props) {
@@ -12,24 +11,25 @@ export default class Register extends React.Component {
 	}
 
 	handleEmail = event => {
-		this.setState({ setEmail: event.target.value })
+		this.setState({ email: event.target.value })
 	}
 
 	handlePassword = event => {
-		this.setState({ setPassword: event.target.value })
+		this.setState({ pwd: event.target.value })
 	}
-	// const [email, setEmail] = useState('')
-	// const [password, setPassword] = useState('')
 
 	handleSubmit = event => {
-		const email = this.state.setEmail
-		const password = this.state.setPassword
-
 		event.preventDefault()
-		axios
-			.post('/submit', { email, password })
-			.then(response => console.log(response))
-			.catch(error => console.log(error))
+		fetch('http://127.0.0.1:5000/users', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ email: this.state.email, pwd: this.state.password }),
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log(data)
+			})
+			.catch(error => console.error(error))
 	}
 
 	render() {

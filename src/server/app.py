@@ -1,45 +1,31 @@
-# from flask import Flask
+from flask import Flask, request
+import psycopg2
+import jsonify
+from flask_cors import CORS, cross_origin
 
-# app = Flask(__name__)
 
-# @app.route("/")
-# def hello_world():
-#     return "Hello, World!"
-
-from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
- 
 app = Flask(__name__)
-                                                            #password:admin
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:zaq1@WSX@localhost/Training'
- 
-db=SQLAlchemy(app)
- 
-class Student(db.Model):
-  __tablename__='users'
-  id=db.Column(db.Integer,primary_key=True)
-  email=db.Column(db.String(40))
-  password=db.Column(db.String(40))
- 
-  def __init__(self,email,password):
-    self.email=email
-    self.password=password
- 
-# @app.route('/')
- 
-@app.route('/submit', methods=['POST'])
-def submit():
-  email= request.form['email']
-  password=request.form['password']
- 
-  user=user(email,password)
-  db.session.add(user)
-  db.session.commit()
- 
-  studentResult=db.session.query(user).filter(user.id==1)
-  for result in studentResult:
-    print(result.email)
- 
- 
-if __name__ == "__main__":
-    app.run(debug=True, use_reloader=False, host="192.168.33.185")
+
+conn = psycopg2.connect(
+    host="localhost",
+    database="SQLSchool",
+    user="postgres",
+    password="zaq1@WSX",
+
+)
+
+@app.route('/users', methods=['POST'])
+def add_user():
+    email = request.json['email']
+    password = request.json['pwd']
+    try:
+        cur = conn.cursor()
+        cur.execute("INSERT INTO users ( email, pwd) VALUES (%s, %s)", ( email, password))
+        conn.commit()
+        cur.close()
+        return jsonify({'message': 'User added successfully!'})
+    except Exception as e:
+        return jsonify({'error': str(e)})
+    
+if __name__ == '__main__':
+    app.run(debug=True)
