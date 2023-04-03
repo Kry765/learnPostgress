@@ -1,5 +1,14 @@
+import React from 'react'
+
 export default class Dashboard extends React.Component {
 	render() {
-		return <p>Dashboard</p>
+		return (
+			<main>
+				<div>
+					<div>Learn Postgress</div>
+					<div>Solve the exercises</div>
+				</div>
+			</main>
+		)
 	}
 }
