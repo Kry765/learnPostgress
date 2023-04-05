@@ -59,7 +59,7 @@ export default class Register extends React.Component {
 										placeholder='Password'
 										onChange={this.handlePassword}
 									/>
-									{/* <input type='password' className='form-account__input-account' placeholder='Repeat Password' /> */}
+									<input type='password' className='form-account__input-account' placeholder='Repeat Password' />
 								</div>
 								<button type='submit' className='signin-btn'>
 									Sign in
