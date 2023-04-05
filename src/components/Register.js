@@ -1,6 +1,7 @@
 import React from 'react'
 import '../scss/_register.scss'
 import { Link } from 'react-router-dom'
+
 export default class Register extends React.Component {
 	constructor(props) {
 		super(props)
@@ -23,7 +24,7 @@ export default class Register extends React.Component {
 		const API = 'http://localhost:5000/users'
 		fetch(API, {
 			method: 'POST',
-			mode: 'no-cors',
+			mode: 'cors',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ email: this.state.email, pwd: this.state.pwd }),
 		})
@@ -58,7 +59,7 @@ export default class Register extends React.Component {
 										placeholder='Password'
 										onChange={this.handlePassword}
 									/>
-									<input type='password' className='form-account__input-account' placeholder='Repeat Password' />
+									{/* <input type='password' className='form-account__input-account' placeholder='Repeat Password' /> */}
 								</div>
 								<button type='submit' className='signin-btn'>
 									Sign in

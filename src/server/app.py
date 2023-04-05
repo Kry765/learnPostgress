@@ -1,8 +1,10 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import psycopg2
+from flask_cors import CORS
+
 
 app = Flask(__name__)
-
+CORS(app)
 conn = psycopg2.connect(
     host="localhost",
     database="SQLSchool",
@@ -14,16 +16,24 @@ conn = psycopg2.connect(
 cur = conn.cursor()
 
 @app.route('/users', methods=['POST'])
-def add_user():
-    cur.execute("INSERT INTO users (email, pwd) VALUES ('%s', %s)")
-    conn.commit()
-    return 'Done.'
+# @cross_origin()
 
-#DOWNLOAD DATA @app.get('/')
-# def get_user():
-#     cur.execute("SELECT * FROM users")
-#     rows = cur.fetchall()
-#     return str(rows)
+def add_user():
+    
+    data = request.get_json()
+
+    query = "INSERT INTO users (email, pwd) VALUES (%s, %s);"
+
+    cur = conn.cursor()
+    cur.execute(query, (data['email'], data['pwd']))
+    conn.commit()
+    cur.close()
+    return jsonify({'status': 'success'})
 
 if __name__ == '__main__':
     app.run()
+
+
+    #SELECT * FROM users;
+
+    #DELETE FROM users;
